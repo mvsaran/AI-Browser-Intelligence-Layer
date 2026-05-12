@@ -3,7 +3,7 @@
     "configFile": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\playwright.config.ts",
     "rootDir": "C:/Users/mvsar/Projects/AIBROWSERINTELLIGANCE LAYER/tests",
     "forbidOnly": false,
-    "fullyParallel": true,
+    "fullyParallel": false,
     "globalSetup": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\global-setup.ts",
     "globalTeardown": null,
     "globalTimeout": 0,
@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 2
     },
     "preserveOutput": "always",
     "projects": [
@@ -20,7 +20,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "chromium",
         "name": "chromium",
@@ -29,14 +29,14 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 60000
+        "timeout": 300000
       },
       {
         "outputDir": "C:/Users/mvsar/Projects/AIBROWSERINTELLIGANCE LAYER/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 2
         },
         "id": "debug",
         "name": "debug",
@@ -45,7 +45,7 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 60000
+        "timeout": 300000
       }
     ],
     "quiet": false,
@@ -70,7 +70,7 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.59.1",
-    "workers": 1,
+    "workers": 6,
     "webServer": null
   },
   "suites": [
@@ -89,11 +89,11 @@
           "specs": [
             {
               "title": "should complete a successful purchase from login to finish",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
+                  "timeout": 300000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -102,407 +102,325 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 25385,
-                      "error": {
-                        "message": "Error: [GUARD] MAX_TOKENS_PER_TEST exceeded: 20052 > 20000",
-                        "stack": "Error: [GUARD] MAX_TOKENS_PER_TEST exceeded: 20052 > 20000\n    at AIAgent.execute (C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\src\\ai\\agent.ts:51:15)\n    at CheckoutPage.finish (C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\pages\\CheckoutPage.ts:24:5)\n    at C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts:43:5",
-                        "location": {
-                          "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\src\\ai\\agent.ts",
-                          "column": 15,
-                          "line": 51
-                        },
-                        "snippet": "\u001b[90m   at \u001b[39m..\\src\\ai\\agent.ts:51\n\n\u001b[0m \u001b[90m 49 |\u001b[39m         \u001b[36mconst\u001b[39m errorMsg \u001b[33m=\u001b[39m \u001b[32m`[GUARD] MAX_TOKENS_PER_TEST exceeded: ${this.totalTokens} > ${this.maxTokens}`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \u001b[33mLogger\u001b[39m\u001b[33m.\u001b[39merror(errorMsg)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m         \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(errorMsg)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 52 |\u001b[39m       }\n \u001b[90m 53 |\u001b[39m     }\n \u001b[90m 54 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\src\\ai\\agent.ts",
-                            "column": 15,
-                            "line": 51
-                          },
-                          "message": "Error: [GUARD] MAX_TOKENS_PER_TEST exceeded: 20052 > 20000\n\n   at ..\\src\\ai\\agent.ts:51\n\n  49 |         const errorMsg = `[GUARD] MAX_TOKENS_PER_TEST exceeded: ${this.totalTokens} > ${this.maxTokens}`;\n  50 |         Logger.error(errorMsg);\n> 51 |         throw new Error(errorMsg);\n     |               ^\n  52 |       }\n  53 |     }\n  54 |\n    at AIAgent.execute (C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\src\\ai\\agent.ts:51:15)\n    at CheckoutPage.finish (C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\pages\\CheckoutPage.ts:24:5)\n    at C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts:43:5"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 32972,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:39.620Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:57.126Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:39.621Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:57.130Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:39.642Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:57.180Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:39.647Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:09:57.182Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:41.682Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 90,\n  \"reasoning\": \"The intent is to type 'standard_user' into the username input field. The extracted interactive elements include a text input element with the placeholder 'Username' and the dataTest 'username', which matches the target field for entering the username.\",\n  \"usage\": {\n    \"prompt_tokens\": 672,\n    \"completion_tokens\": 85,\n    \"total_tokens\": 757,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:09:59.009Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 90,\n  \"reasoning\": \"The input field for the username is correctly identified using the data-test attribute 'username' which matches the user's intent to enter 'standard_user'.\",\n  \"usage\": {\n    \"prompt_tokens\": 761,\n    \"completion_tokens\": 67,\n    \"total_tokens\": 828,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:41.683Z] INFO: [COST] Tokens: 672 (input) | 85 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:59.011Z] INFO: Executing action: fill on \"username\" with confidence 90% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:41.683Z] INFO: [COST] Cumulative Tokens: 757 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:09:59.013Z] DEBUG: Trying strategy: Data-Test for \"username\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:41.684Z] INFO: Executing action: fill on \"Username\" with confidence 90% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:09:59.111Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:41.684Z] DEBUG: Trying strategy: Placeholder for \"Username\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:09:59.112Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 1986ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:41.727Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:59.113Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:41.728Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 2109ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:59.113Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:41.728Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:59.139Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:41.728Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:09:59.140Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:41.736Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:00.343Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 100,\n  \"reasoning\": \"The intent is to type into the password field. The unique identifier 'password' (from data-test value) is clearly associated with the password input field, making it the most reliable target for this action.\",\n  \"usage\": {\n    \"prompt_tokens\": 765,\n    \"completion_tokens\": 80,\n    \"total_tokens\": 845,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:41.737Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.345Z] INFO: Executing action: fill on \"password\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:43.242Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent specifies filling the password field with 'secret_sauce', and there is a visible input element with a role 'password' and placeholder 'Password'.\",\n  \"usage\": {\n    \"prompt_tokens\": 676,\n    \"completion_tokens\": 72,\n    \"total_tokens\": 748,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:00.345Z] DEBUG: Trying strategy: Data-Test for \"password\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:43.242Z] INFO: [COST] Tokens: 676 (input) | 72 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:00.374Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:43.243Z] INFO: [COST] Cumulative Tokens: 1505 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:00.375Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 1262ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:43.243Z] INFO: Executing action: fill on \"Password\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.375Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:43.244Z] DEBUG: Trying strategy: Placeholder for \"Password\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.376Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:43.256Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.393Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:43.257Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 1529ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:00.394Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:43.258Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:02.162Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"login-button\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The element with dataTest 'login-button' and role 'submit' matches the user intent to click the login button. The presence of a unique identifier 'login-button' ensures accurate target selection.\",\n  \"usage\": {\n    \"prompt_tokens\": 763,\n    \"completion_tokens\": 76,\n    \"total_tokens\": 839,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:43.258Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.163Z] INFO: Executing action: click on \"login-button\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:43.267Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:02.164Z] DEBUG: Trying strategy: Data-Test for \"login-button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:43.267Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:02.315Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:44.907Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Login\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent specifically mentions clicking the 'login button', and the extracted element with role 'submit' labeled 'Login' matches this description. It is marked as visible and is a button, which aligns with the user's intent to click a login button.\",\n  \"usage\": {\n    \"prompt_tokens\": 674,\n    \"completion_tokens\": 84,\n    \"total_tokens\": 758,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:02.316Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 1941ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:44.908Z] INFO: [COST] Tokens: 674 (input) | 84 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.341Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Backpack\" to the cart\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:44.909Z] INFO: [COST] Cumulative Tokens: 2263 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.342Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:44.909Z] INFO: Executing action: click on \"Login\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.378Z] INFO: Found 76 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:44.910Z] DEBUG: Trying strategy: Role & Name for \"Login\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:02.379Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Backpack\\\" to the cart\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:44.984Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:03.416Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"add-to-cart-sauce-labs-backpack\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intends to add the 'Sauce Labs Backpack' to the cart. The button with id 'add-to-cart-sauce-labs-backpack' matches this intent specifically and directly corresponds to the 'Sauce Labs Backpack'. Therefore, clicking this button will fulfill the user's intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 4452,\n    \"completion_tokens\": 101,\n    \"total_tokens\": 4553,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:44.985Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 1727ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:03.418Z] INFO: Executing action: click on \"add-to-cart-sauce-labs-backpack\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:45.002Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Backpack\" to the cart\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:03.419Z] DEBUG: Trying strategy: Data-Test for \"add-to-cart-sauce-labs-backpack\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:45.003Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:03.460Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:45.022Z] INFO: Found 76 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:03.461Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Backpack\" to the cart\") took 1120ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:45.022Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Backpack\\\" to the cart\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:03.462Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:46.671Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Add to cart\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The intent is to add the 'Sauce Labs Backpack' to the cart. The element with id 'add-to-cart-sauce-labs-backpack' clearly corresponds to this action as it is a visible button labeled 'Add to cart' associated with the 'Sauce Labs Backpack'.\",\n  \"usage\": {\n    \"prompt_tokens\": 4363,\n    \"completion_tokens\": 96,\n    \"total_tokens\": 4459,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4352,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:03.463Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:46.672Z] INFO: [COST] Tokens: 4363 (input) | 96 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:03.497Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:46.672Z] INFO: [COST] Cumulative Tokens: 6722 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:03.498Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:46.673Z] INFO: Executing action: click on \"Add to cart\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:04.723Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"shopping-cart-link\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The user wants to click on the shopping cart icon. The element with role 'a' and dataTest 'shopping-cart-link' is the most suitable identifier as it represents the shopping cart link. The confidence is high because this matches the user's intent directly.\",\n  \"usage\": {\n    \"prompt_tokens\": 4187,\n    \"completion_tokens\": 89,\n    \"total_tokens\": 4276,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:46.673Z] DEBUG: Trying strategy: Role & Name for \"Add to cart\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.724Z] INFO: Executing action: click on \"shopping-cart-link\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:46.705Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:04.725Z] DEBUG: Trying strategy: Data-Test for \"shopping-cart-link\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:46.706Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Backpack\" to the cart\") took 1704ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:04.792Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:46.707Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:04.793Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 1331ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:46.707Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.794Z] INFO: [AIAgent] Processing Intent: \"Click the checkout button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:46.726Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.794Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:46.727Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.815Z] INFO: Found 26 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:48.006Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"1\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intends to click the shopping cart icon. The element with role 'a' and className 'shopping_cart_link' has the text '1', which corresponds to the number of items in the cart, suggesting it is the shopping cart icon. Its visibility and class name make it the most likely target.\",\n  \"usage\": {\n    \"prompt_tokens\": 4098,\n    \"completion_tokens\": 97,\n    \"total_tokens\": 4195,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 3968,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:04.816Z] AI_REASONING: Determining action for intent: \"Click the checkout button\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:48.008Z] INFO: [COST] Tokens: 4098 (input) | 97 (output) \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:05.731Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"checkout\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to click the 'checkout button'. The button with the text 'Checkout' has a unique identifier 'checkout' which fits the user intent and is visible on the page.\",\n  \"usage\": {\n    \"prompt_tokens\": 1652,\n    \"completion_tokens\": 74,\n    \"total_tokens\": 1726,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:48.009Z] INFO: [COST] Cumulative Tokens: 10917 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:05.732Z] INFO: Executing action: click on \"checkout\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:48.010Z] INFO: Executing action: click on \"1\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:05.732Z] DEBUG: Trying strategy: Data-Test for \"checkout\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:48.010Z] DEBUG: Trying strategy: Role & Name for \"1\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:05.794Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:50.022Z] DEBUG: Trying strategy: Text for \"1\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:05.795Z] DEBUG: [LATENCY] execute(\"Click the checkout button\") took 1001ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:50.063Z] DEBUG: Strategy Text succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:05.796Z] INFO: [AIAgent] Processing Intent: \"Enter \"John\" as first name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:50.064Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 3357ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:05.797Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:50.064Z] INFO: [AIAgent] Processing Intent: \"Click the checkout button\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:05.815Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:50.064Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:05.816Z] AI_REASONING: Determining action for intent: \"Enter \\\"John\\\" as first name\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:50.072Z] INFO: Found 26 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:06.931Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"first-name\",\n  \"value\": \"John\",\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to fill 'John' as the first name. The element with the placeholder 'First Name' has an ID of 'first-name', which is the best match for such an input.\",\n  \"usage\": {\n    \"prompt_tokens\": 1330,\n    \"completion_tokens\": 79,\n    \"total_tokens\": 1409,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:50.073Z] AI_REASONING: Determining action for intent: \"Click the checkout button\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:06.932Z] INFO: Executing action: fill on \"first-name\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:51.415Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Checkout\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user wants to 'click the checkout button', and there is a visible button labeled 'Checkout' on the page that matches this intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 1563,\n    \"completion_tokens\": 63,\n    \"total_tokens\": 1626,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:06.933Z] DEBUG: Trying strategy: Data-Test for \"first-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:51.416Z] INFO: [COST] Tokens: 1563 (input) | 63 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:09.944Z] DEBUG: Trying strategy: ID for \"first-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:51.416Z] INFO: [COST] Cumulative Tokens: 12543 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:09.967Z] DEBUG: Strategy ID succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:51.417Z] INFO: Executing action: click on \"Checkout\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:09.968Z] DEBUG: [LATENCY] execute(\"Enter \"John\" as first name\") took 4172ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:51.417Z] DEBUG: Trying strategy: Role & Name for \"Checkout\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.969Z] INFO: [AIAgent] Processing Intent: \"Enter \"Doe\" as last name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:51.439Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.969Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:51.439Z] DEBUG: [LATENCY] execute(\"Click the checkout button\") took 1375ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.984Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:51.440Z] INFO: [AIAgent] Processing Intent: \"Enter \"John\" as first name\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:09.985Z] AI_REASONING: Determining action for intent: \"Enter \\\"Doe\\\" as last name\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:51.440Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:11.040Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"last-name\",\n  \"value\": \"Doe\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user wants to enter a last name, and the input field with the ID 'last-name' is the correct and identifiable field for the last name based on the provided elements. The use of the ID is a unique identifier and matches the intent precisely.\",\n  \"usage\": {\n    \"prompt_tokens\": 1332,\n    \"completion_tokens\": 89,\n    \"total_tokens\": 1421,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:51.448Z] INFO: Found 25 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:11.041Z] INFO: Executing action: fill on \"last-name\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:51.449Z] AI_REASONING: Determining action for intent: \"Enter \\\"John\\\" as first name\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:11.042Z] DEBUG: Trying strategy: Data-Test for \"last-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:52.942Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"First Name\",\n  \"value\": \"John\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent is to fill the first name with 'John'. The interactive element with id 'first-name' is specifically designed for entering the first name, matching the intent precisely.\",\n  \"usage\": {\n    \"prompt_tokens\": 1542,\n    \"completion_tokens\": 73,\n    \"total_tokens\": 1615,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:14.056Z] DEBUG: Trying strategy: ID for \"last-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:52.943Z] INFO: [COST] Tokens: 1542 (input) | 73 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:14.078Z] DEBUG: Strategy ID succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:52.943Z] INFO: [COST] Cumulative Tokens: 14158 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:14.079Z] DEBUG: [LATENCY] execute(\"Enter \"Doe\" as last name\") took 4110ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:52.944Z] INFO: Executing action: fill on \"First Name\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:14.080Z] INFO: [AIAgent] Processing Intent: \"Enter \"12345\" as postal code\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:52.944Z] DEBUG: Trying strategy: Placeholder for \"First Name\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:14.081Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:52.957Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:14.099Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:52.958Z] DEBUG: [LATENCY] execute(\"Enter \"John\" as first name\") took 1518ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:14.100Z] AI_REASONING: Determining action for intent: \"Enter \\\"12345\\\" as postal code\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:52.958Z] INFO: [AIAgent] Processing Intent: \"Enter \"Doe\" as last name\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:15.525Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"postal-code\",\n  \"value\": \"12345\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intends to input a postal code, and there is an input field with the id 'postal-code'. The placeholder also indicates it's for 'Zip/Postal Code', confirming it's the correct field for the user's action.\",\n  \"usage\": {\n    \"prompt_tokens\": 1335,\n    \"completion_tokens\": 83,\n    \"total_tokens\": 1418,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:52.959Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:15.526Z] INFO: Executing action: fill on \"postal-code\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:52.972Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:15.527Z] DEBUG: Trying strategy: Data-Test for \"postal-code\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:52.973Z] AI_REASONING: Determining action for intent: \"Enter \\\"Doe\\\" as last name\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:18.545Z] DEBUG: Trying strategy: ID for \"postal-code\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:55.878Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Last Name\",\n  \"value\": \"Doe\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user's intent is to enter a last name, 'Doe'. The appropriate field for this action is the input with the placeholder 'Last Name'. This matches with the element having the role 'text' and the id 'last-name'.\",\n  \"usage\": {\n    \"prompt_tokens\": 1243,\n    \"completion_tokens\": 86,\n    \"total_tokens\": 1329,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:18.569Z] DEBUG: Strategy ID succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:55.879Z] INFO: [COST] Tokens: 1243 (input) | 86 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:18.570Z] DEBUG: [LATENCY] execute(\"Enter \"12345\" as postal code\") took 4490ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:55.879Z] INFO: [COST] Cumulative Tokens: 15487 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:18.571Z] INFO: [AIAgent] Processing Intent: \"Click continue\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:55.879Z] INFO: Executing action: fill on \"Last Name\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:18.572Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:55.880Z] DEBUG: Trying strategy: Placeholder for \"Last Name\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:18.585Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:55.889Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:18.586Z] AI_REASONING: Determining action for intent: \"Click continue\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:55.890Z] DEBUG: [LATENCY] execute(\"Enter \"Doe\" as last name\") took 2932ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:19.951Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"continue\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to 'Click continue', and there is a submit button with the visible text 'Continue' which matches this intent. The 'id' and 'dataTest' attribute both have the value 'continue', making it an ideal unique identifier for the requested action.\",\n  \"usage\": {\n    \"prompt_tokens\": 1332,\n    \"completion_tokens\": 91,\n    \"total_tokens\": 1423,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:55.890Z] INFO: [AIAgent] Processing Intent: \"Enter \"12345\" as postal code\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:19.965Z] INFO: Executing action: click on \"continue\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:55.890Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:19.967Z] DEBUG: Trying strategy: Data-Test for \"continue\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:55.898Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:20.031Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:55.898Z] AI_REASONING: Determining action for intent: \"Enter \\\"12345\\\" as postal code\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:20.032Z] DEBUG: [LATENCY] execute(\"Click continue\") took 1461ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:04:57.834Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Zip/Postal Code\",\n  \"value\": \"12345\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to enter a postal code, and there is a visible input field with the placeholder 'Zip/Postal Code'.\",\n  \"usage\": {\n    \"prompt_tokens\": 1246,\n    \"completion_tokens\": 68,\n    \"total_tokens\": 1314,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:20.033Z] INFO: [AIAgent] Processing Intent: \"Click finish\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:57.835Z] INFO: [COST] Tokens: 1246 (input) | 68 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:20.034Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:57.835Z] INFO: [COST] Cumulative Tokens: 16801 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:20.055Z] INFO: Found 33 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:57.836Z] INFO: Executing action: fill on \"Zip/Postal Code\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:20.057Z] AI_REASONING: Determining action for intent: \"Click finish\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:57.836Z] DEBUG: Trying strategy: Placeholder for \"Zip/Postal Code\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:21.445Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"finish\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to 'Click finish', and there is a button with the text 'Finish'. The button has a unique identifier 'finish', which matches the user intent directly. It is a perfect match as there are no other 'Finish' elements present on the page.\",\n  \"usage\": {\n    \"prompt_tokens\": 1959,\n    \"completion_tokens\": 91,\n    \"total_tokens\": 2050,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:57.847Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:21.446Z] INFO: Executing action: click on \"finish\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:04:57.848Z] DEBUG: [LATENCY] execute(\"Enter \"12345\" as postal code\") took 1958ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:21.447Z] DEBUG: Trying strategy: Data-Test for \"finish\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:57.848Z] INFO: [AIAgent] Processing Intent: \"Click continue\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:21.504Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:04:57.849Z] INFO: Extracting page context... \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:57.856Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:04:57.857Z] AI_REASONING: Determining action for intent: \"Click continue\"\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:04:59.450Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Continue\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to click 'Continue', and there is a visible button with the text 'Continue' on the page. Thus, clicking this button is the most appropriate action.\",\n  \"usage\": {\n    \"prompt_tokens\": 1243,\n    \"completion_tokens\": 71,\n    \"total_tokens\": 1314,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:59.451Z] INFO: [COST] Tokens: 1243 (input) | 71 (output) \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:59.451Z] INFO: [COST] Cumulative Tokens: 18115 / 20000 \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:59.452Z] INFO: Executing action: click on \"Continue\" with confidence 95% \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:04:59.452Z] DEBUG: Trying strategy: Role & Name for \"Continue\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:04:59.503Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:04:59.503Z] DEBUG: [LATENCY] execute(\"Click continue\") took 1655ms \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:59.504Z] INFO: [AIAgent] Processing Intent: \"Click finish\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:59.504Z] INFO: Extracting page context... \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:04:59.516Z] INFO: Found 33 interactive elements. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:04:59.517Z] AI_REASONING: Determining action for intent: \"Click finish\"\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:05:01.273Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Finish\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to 'Click finish', and there is a visible button with the text 'Finish' on the page. This matches the user intent exactly.\",\n  \"usage\": {\n    \"prompt_tokens\": 1870,\n    \"completion_tokens\": 67,\n    \"total_tokens\": 1937,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:01.274Z] INFO: [COST] Tokens: 1870 (input) | 67 (output) \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:01.274Z] INFO: [COST] Cumulative Tokens: 20052 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:21.505Z] DEBUG: [LATENCY] execute(\"Click finish\") took 1472ms \n\u001b[0m\n"
                         }
                       ],
-                      "stderr": [
-                        {
-                          "text": "\u001b[31m[2026-05-11T11:05:01.275Z] ERROR: [GUARD] MAX_TOKENS_PER_TEST exceeded: 20052 > 20000 \n\u001b[0m\n"
-                        }
-                      ],
+                      "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-11T11:04:34.758Z",
+                      "startTime": "2026-05-12T04:09:45.666Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\test-results\\checkout-E2E-Checkout-Flow-c5c82-rchase-from-login-to-finish-chromium\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\src\\ai\\agent.ts",
-                        "column": 15,
-                        "line": 51
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "1cac7d196726861375b6-667104bc6b8536da0afd",
@@ -512,230 +430,194 @@
             },
             {
               "title": "should allow removing an item from the cart before checkout",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
+                  "timeout": 300000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
+                      "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 19511,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.inventory_item_name')\nExpected: \u001b[32m\"Sauce Labs B\u001b[7mike Light\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Sauce Labs B\u001b[7mackpack\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.inventory_item_name')\u001b[22m\n\u001b[2m    9 × locator resolved to <div class=\"inventory_item_name\" data-test=\"inventory-item-name\">Sauce Labs Backpack</div>\u001b[22m\n\u001b[2m      - unexpected value \"Sauce Labs Backpack\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.inventory_item_name')\nExpected: \u001b[32m\"Sauce Labs B\u001b[7mike Light\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Sauce Labs B\u001b[7mackpack\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.inventory_item_name')\u001b[22m\n\u001b[2m    9 × locator resolved to <div class=\"inventory_item_name\" data-test=\"inventory-item-name\">Sauce Labs Backpack</div>\u001b[22m\n\u001b[2m      - unexpected value \"Sauce Labs Backpack\"\u001b[22m\n\n    at C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts:63:70",
-                        "location": {
-                          "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts",
-                          "column": 70,
-                          "line": 63
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m     \u001b[90m// Verify item is in cart\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m expect(agent\u001b[33m.\u001b[39mdirect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.inventory_item_name'\u001b[39m)))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Sauce Labs Bike Light'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m\n \u001b[90m 65 |\u001b[39m     \u001b[90m// Remove item\u001b[39m\n \u001b[90m 66 |\u001b[39m     \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mremoveProduct(\u001b[32m'Sauce Labs Bike Light'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts",
-                            "column": 70,
-                            "line": 63
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.inventory_item_name')\nExpected: \u001b[32m\"Sauce Labs B\u001b[7mike Light\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Sauce Labs B\u001b[7mackpack\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.inventory_item_name')\u001b[22m\n\u001b[2m    9 × locator resolved to <div class=\"inventory_item_name\" data-test=\"inventory-item-name\">Sauce Labs Backpack</div>\u001b[22m\n\u001b[2m      - unexpected value \"Sauce Labs Backpack\"\u001b[22m\n\n\n  61 |\n  62 |     // Verify item is in cart\n> 63 |     await expect(agent.direct(page.locator('.inventory_item_name'))).toHaveText('Sauce Labs Bike Light');\n     |                                                                      ^\n  64 |\n  65 |     // Remove item\n  66 |     await cartPage.removeProduct('Sauce Labs Bike Light');\n    at C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts:63:70"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 31962,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:07.844Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:24.784Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:07.846Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:24.785Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:07.866Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:24.813Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:07.867Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:24.814Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:09.447Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to type a username into the field designated for usernames. Based on the extracted elements, the input field with placeholder 'Username' and id 'user-name' matches the required username field.\",\n  \"usage\": {\n    \"prompt_tokens\": 672,\n    \"completion_tokens\": 79,\n    \"total_tokens\": 751,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:25.841Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 100,\n  \"reasoning\": \"The intent is to fill in the 'standard_user' value into the username field. The best identifier for this action is the 'dataTest' value 'username', which directly corresponds to the username input field on the page, ensuring accurate and reliable targeting.\",\n  \"usage\": {\n    \"prompt_tokens\": 761,\n    \"completion_tokens\": 89,\n    \"total_tokens\": 850,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:09.448Z] INFO: [COST] Tokens: 672 (input) | 79 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:25.842Z] INFO: Executing action: fill on \"username\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:09.448Z] INFO: [COST] Cumulative Tokens: 751 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:25.843Z] DEBUG: Trying strategy: Data-Test for \"username\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:09.448Z] INFO: Executing action: fill on \"Username\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:25.899Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:09.449Z] DEBUG: Trying strategy: Placeholder for \"Username\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:25.900Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 1116ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:09.488Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:25.901Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:09.488Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 1644ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:25.902Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:09.489Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:25.915Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:09.489Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:25.916Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:09.496Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:26.967Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 100,\n  \"reasoning\": \"The user intends to type a password, which is best suited for the input field with role 'password'. The extracted element with dataTest 'password' clearly identifies the password input field.\",\n  \"usage\": {\n    \"prompt_tokens\": 765,\n    \"completion_tokens\": 76,\n    \"total_tokens\": 841,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:09.497Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:26.968Z] INFO: Executing action: fill on \"password\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:10.815Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intends to enter a password. The interactive element with role 'password' and placeholder 'Password' is clearly designated for password input, matching the user's intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 676,\n    \"completion_tokens\": 72,\n    \"total_tokens\": 748,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:26.969Z] DEBUG: Trying strategy: Data-Test for \"password\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:10.816Z] INFO: [COST] Tokens: 676 (input) | 72 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:26.991Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:10.816Z] INFO: [COST] Cumulative Tokens: 1499 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:26.992Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 1091ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:10.816Z] INFO: Executing action: fill on \"Password\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:26.992Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:10.816Z] DEBUG: Trying strategy: Placeholder for \"Password\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:26.993Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:10.829Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:27.007Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:10.829Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 1340ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:27.008Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:10.830Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:29.208Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"login-button\",\n  \"confidence\": 100,\n  \"reasoning\": \"The element with the role 'submit' and the text 'Login' is uniquely identifiable by its 'dataTest' and 'id' attributes, both of which are 'login-button'. This matches the user intent to click the login button.\",\n  \"usage\": {\n    \"prompt_tokens\": 763,\n    \"completion_tokens\": 79,\n    \"total_tokens\": 842,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:10.830Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:29.209Z] INFO: Executing action: click on \"login-button\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:10.836Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:29.210Z] DEBUG: Trying strategy: Data-Test for \"login-button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:10.837Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:29.358Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:12.530Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Login\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to click on the login button. Among the extracted elements, the element with the role 'submit' and text 'Login' directly matches the action of clicking a login button, indicating it's the interactive element to execute the login action.\",\n  \"usage\": {\n    \"prompt_tokens\": 674,\n    \"completion_tokens\": 86,\n    \"total_tokens\": 760,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:29.359Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 2367ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:12.531Z] INFO: [COST] Tokens: 674 (input) | 86 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:29.360Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Bike Light\" to the cart\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:12.531Z] INFO: [COST] Cumulative Tokens: 2259 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:29.361Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:12.532Z] INFO: Executing action: click on \"Login\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:29.398Z] INFO: Found 76 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:12.532Z] DEBUG: Trying strategy: Role & Name for \"Login\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:29.399Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Bike Light\\\" to the cart\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:12.591Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:34.713Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"add-to-cart-sauce-labs-bike-light\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to add the 'Sauce Labs Bike Light' to the cart. The corresponding 'Add to cart' button for this product has the unique identifier 'add-to-cart-sauce-labs-bike-light', which is the best match for the desired action.\",\n  \"usage\": {\n    \"prompt_tokens\": 4453,\n    \"completion_tokens\": 98,\n    \"total_tokens\": 4551,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:12.592Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 1762ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:34.714Z] INFO: Executing action: click on \"add-to-cart-sauce-labs-bike-light\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:12.592Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Bike Light\" to the cart\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:34.715Z] DEBUG: Trying strategy: Data-Test for \"add-to-cart-sauce-labs-bike-light\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:12.593Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:34.760Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:12.608Z] INFO: Found 76 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:34.761Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Bike Light\" to the cart\") took 5401ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:12.609Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Bike Light\\\" to the cart\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:34.762Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:14.323Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Add to cart\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user wants to add the 'Sauce Labs Bike Light' to the cart. There is a button with the text 'Add to cart' associated with the 'Sauce Labs Bike Light', signified by the id 'add-to-cart-sauce-labs-bike-light', which matches the product name. Therefore, clicking this button will fulfill the user's intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 4364,\n    \"completion_tokens\": 110,\n    \"total_tokens\": 4474,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:34.762Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:14.323Z] INFO: [COST] Tokens: 4364 (input) | 110 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:34.793Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:14.324Z] INFO: [COST] Cumulative Tokens: 6733 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:34.794Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:14.324Z] INFO: Executing action: click on \"Add to cart\" with confidence 100% \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:48.832Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"shopping-cart-link\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The user's intent is to click on the shopping cart icon. The element with the data-test value 'shopping-cart-link' is a visible link, which is likely representing the cart given the context. Using the 'data-test' attribute provides a precise and reliable target for this action.\",\n  \"usage\": {\n    \"prompt_tokens\": 4187,\n    \"completion_tokens\": 94,\n    \"total_tokens\": 4281,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:14.324Z] DEBUG: Trying strategy: Role & Name for \"Add to cart\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:48.833Z] INFO: Executing action: click on \"shopping-cart-link\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:14.355Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:48.834Z] DEBUG: Trying strategy: Data-Test for \"shopping-cart-link\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:14.356Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Bike Light\" to the cart\") took 1764ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:48.904Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:14.356Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:48.905Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 14143ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:14.356Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:48.918Z] INFO: [AIAgent] Processing Intent: \"Remove \"Sauce Labs Bike Light\" from the cart\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:14.370Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:48.919Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:14.371Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:48.937Z] INFO: Found 26 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:16.609Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"1\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The user's intent is to click on the shopping cart icon. The extracted element with role 'a', className 'shopping_cart_link', and the text '1', likely represents the shopping cart icon. This match is based on the common convention of representing a shopping cart with an icon that may also show the number of items in the cart.\",\n  \"usage\": {\n    \"prompt_tokens\": 4098,\n    \"completion_tokens\": 104,\n    \"total_tokens\": 4202,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 3968,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:48.938Z] AI_REASONING: Determining action for intent: \"Remove \\\"Sauce Labs Bike Light\\\" from the cart\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:16.610Z] INFO: [COST] Tokens: 4098 (input) | 104 (output) \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:53.471Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"remove-sauce-labs-bike-light\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The button to remove the 'Sauce Labs Bike Light' is clearly identified by the unique data-test and id attributes 'remove-sauce-labs-bike-light', which directly correspond to the user intent to remove this specific item from the cart.\",\n  \"usage\": {\n    \"prompt_tokens\": 1662,\n    \"completion_tokens\": 90,\n    \"total_tokens\": 1752,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:16.610Z] INFO: [COST] Cumulative Tokens: 10935 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:53.472Z] INFO: Executing action: click on \"remove-sauce-labs-bike-light\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:16.610Z] INFO: Executing action: click on \"1\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:53.473Z] DEBUG: Trying strategy: Data-Test for \"remove-sauce-labs-bike-light\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:16.611Z] DEBUG: Trying strategy: Role & Name for \"1\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:53.519Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:18.619Z] DEBUG: Trying strategy: Text for \"1\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:18.644Z] DEBUG: Strategy Text succeeded. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:18.644Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 4288ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:53.520Z] DEBUG: [LATENCY] execute(\"Remove \"Sauce Labs Bike Light\" from the cart\") took 4603ms \n\u001b[0m\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-11T11:05:03.021Z",
+                      "startTime": "2026-05-12T04:10:21.579Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\test-results\\checkout-E2E-Checkout-Flow-3a2eb-om-the-cart-before-checkout-chromium\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts",
-                        "column": 70,
-                        "line": 63
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "1cac7d196726861375b6-24df9bab94708700c087",
@@ -749,389 +631,329 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
+                  "timeout": 300000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "debug",
                   "projectName": "debug",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 27664,
+                      "duration": 41629,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:26.900Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:57.337Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:26.901Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:57.341Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:26.921Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:57.381Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:26.922Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:09:57.383Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:29.341Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent is to type 'standard_user' into the username field, which is the input element identified by its id 'user-name' and placeholder 'Username'.\",\n  \"usage\": {\n    \"prompt_tokens\": 672,\n    \"completion_tokens\": 71,\n    \"total_tokens\": 743,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:09:59.527Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 95,\n  \"reasoning\": \"The 'username' field is identified with the data-test attribute 'username'. It matches the user's intent to fill the username input field specifically.\",\n  \"usage\": {\n    \"prompt_tokens\": 761,\n    \"completion_tokens\": 66,\n    \"total_tokens\": 827,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:29.342Z] INFO: [COST] Tokens: 672 (input) | 71 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:09:59.528Z] INFO: Executing action: fill on \"username\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:29.342Z] INFO: [COST] Cumulative Tokens: 743 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:09:59.529Z] DEBUG: Trying strategy: Data-Test for \"username\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:29.343Z] INFO: Executing action: fill on \"Username\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:00.127Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:29.344Z] DEBUG: Trying strategy: Placeholder for \"Username\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:00.128Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 2791ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:29.885Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.129Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:29.886Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 2986ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.130Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:29.886Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:00.147Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:29.887Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:00.148Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:29.893Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:01.517Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 100,\n  \"reasoning\": \"The intent explicitly states to fill the password field with 'secret_sauce'. The extracted interactive element with the role 'password' has the dataTest 'password', which is a unique identifier for the password input field. This aligns perfectly with the user intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 765,\n    \"completion_tokens\": 90,\n    \"total_tokens\": 855,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:29.894Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:01.518Z] INFO: Executing action: fill on \"password\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:31.668Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intends to input text 'secret_sauce' into the password field. The interactive element with role 'password' and placeholder 'Password' is the correct target for this action.\",\n  \"usage\": {\n    \"prompt_tokens\": 676,\n    \"completion_tokens\": 76,\n    \"total_tokens\": 752,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:01.519Z] DEBUG: Trying strategy: Data-Test for \"password\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:31.668Z] INFO: [COST] Tokens: 676 (input) | 76 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:02.054Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:31.669Z] INFO: [COST] Cumulative Tokens: 1495 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:02.055Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 1926ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:31.669Z] INFO: Executing action: fill on \"Password\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.056Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:31.669Z] DEBUG: Trying strategy: Placeholder for \"Password\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.057Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:32.183Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:02.075Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:32.184Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 2298ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:02.076Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:32.184Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:03.644Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"login-button\",\n  \"value\": \"\",\n  \"confidence\": 100,\n  \"reasoning\": \"The element with role 'submit' and text 'Login' has a unique identifier 'login-button' which directly correlates with the user intent of clicking the login button. The use of a specific data-test attribute ensures high confidence in selecting the correct element.\",\n  \"usage\": {\n    \"prompt_tokens\": 763,\n    \"completion_tokens\": 87,\n    \"total_tokens\": 850,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:32.184Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:03.644Z] INFO: Executing action: click on \"login-button\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:32.189Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:03.646Z] DEBUG: Trying strategy: Data-Test for \"login-button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:32.190Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:04.280Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:33.560Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Login\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to click the login button, and the element with role 'submit' and text 'Login' matches this intent closely. It is visible and designed for a login action.\",\n  \"usage\": {\n    \"prompt_tokens\": 674,\n    \"completion_tokens\": 73,\n    \"total_tokens\": 747,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:04.294Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 2238ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:33.561Z] INFO: [COST] Tokens: 674 (input) | 73 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.316Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Backpack\" to the cart\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:33.561Z] INFO: [COST] Cumulative Tokens: 2242 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.316Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:33.561Z] INFO: Executing action: click on \"Login\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:04.353Z] INFO: Found 70 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:33.562Z] DEBUG: Trying strategy: Role & Name for \"Login\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:04.355Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Backpack\\\" to the cart\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:34.147Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:05.509Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"add-to-cart-sauce-labs-backpack\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The button for adding the 'Sauce Labs Backpack' to the cart can be uniquely identified by its data-test attribute value 'add-to-cart-sauce-labs-backpack.' This is the precise action needed to fulfill the user's intent, ensuring the correct item is selected.\",\n  \"usage\": {\n    \"prompt_tokens\": 4151,\n    \"completion_tokens\": 98,\n    \"total_tokens\": 4249,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:34.148Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 1964ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:05.510Z] INFO: Executing action: click on \"add-to-cart-sauce-labs-backpack\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:34.161Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Backpack\" to the cart\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:05.511Z] DEBUG: Trying strategy: Data-Test for \"add-to-cart-sauce-labs-backpack\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:34.161Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:06.077Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:34.177Z] INFO: Found 70 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:06.078Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Backpack\" to the cart\") took 1762ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:34.178Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Backpack\\\" to the cart\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:06.079Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:35.747Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Add to cart\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to add the 'Sauce Labs Backpack' to the cart. The interactive element with the role 'button' and text 'Add to cart' that matches 'Sauce Labs Backpack' is identifiable by the id 'add-to-cart-sauce-labs-backpack'.\",\n  \"usage\": {\n    \"prompt_tokens\": 4062,\n    \"completion_tokens\": 95,\n    \"total_tokens\": 4157,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 3072,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:06.080Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:35.748Z] INFO: [COST] Tokens: 4062 (input) | 95 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:06.112Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:35.749Z] INFO: [COST] Cumulative Tokens: 6399 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:06.113Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:35.749Z] INFO: Executing action: click on \"Add to cart\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:07.334Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"shopping-cart-link\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user's intent is to click on the shopping cart icon. The element with 'dataTest': 'shopping-cart-link' is an anchor ('a') that aligns with the typical role of a 'cart' icon or link. This element is appropriate for the user's intent and there's no other conflicting element, making it the best candidate.\",\n  \"usage\": {\n    \"prompt_tokens\": 4187,\n    \"completion_tokens\": 103,\n    \"total_tokens\": 4290,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:35.749Z] DEBUG: Trying strategy: Role & Name for \"Add to cart\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:07.335Z] INFO: Executing action: click on \"shopping-cart-link\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:36.281Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:07.337Z] DEBUG: Trying strategy: Data-Test for \"shopping-cart-link\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:36.282Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Backpack\" to the cart\") took 2121ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:07.911Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:36.282Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:07.912Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 1833ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:36.283Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:07.913Z] INFO: [AIAgent] Processing Intent: \"Click the checkout button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:36.296Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:07.913Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:36.297Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:07.930Z] INFO: Found 26 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:38.062Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"1\",\n  \"value\": null,\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent specifies clicking on the shopping cart icon. The element with role 'a', text '1', and dataTest 'shopping-cart-link' is consistent with a shopping cart, as the '1' likely represents the number of items currently in the cart.\",\n  \"usage\": {\n    \"prompt_tokens\": 4098,\n    \"completion_tokens\": 89,\n    \"total_tokens\": 4187,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 3968,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:07.931Z] AI_REASONING: Determining action for intent: \"Click the checkout button\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:38.062Z] INFO: [COST] Tokens: 4098 (input) | 89 (output) \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:09.104Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"checkout\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent is to click the checkout button. The interactive element with role 'button', text 'Checkout', and dataTest 'checkout' is the best match as it uniquely represents the checkout button on the page.\",\n  \"usage\": {\n    \"prompt_tokens\": 1652,\n    \"completion_tokens\": 77,\n    \"total_tokens\": 1729,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:38.063Z] INFO: [COST] Cumulative Tokens: 10586 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.105Z] INFO: Executing action: click on \"checkout\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:38.063Z] INFO: Executing action: click on \"1\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:09.106Z] DEBUG: Trying strategy: Data-Test for \"checkout\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:38.063Z] DEBUG: Trying strategy: Role & Name for \"1\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:09.647Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:40.583Z] DEBUG: Trying strategy: Text for \"1\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:09.648Z] DEBUG: [LATENCY] execute(\"Click the checkout button\") took 1735ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:41.117Z] DEBUG: Strategy Text succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.649Z] INFO: [AIAgent] Processing Intent: \"Enter \"John\" as first name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:41.118Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 4836ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.650Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:41.118Z] INFO: [AIAgent] Processing Intent: \"Click the checkout button\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:09.670Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:41.118Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:09.671Z] AI_REASONING: Determining action for intent: \"Enter \\\"John\\\" as first name\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:41.126Z] INFO: Found 26 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:10.951Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"first-name\",\n  \"value\": \"John\",\n  \"confidence\": 95,\n  \"reasoning\": \"The 'Enter \\\"John\\\" as first name' intent corresponds to filling in the 'First Name' input field. The best identifier for this is the 'id' attribute with the value 'first-name', which directly corresponds to the user's intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 1330,\n    \"completion_tokens\": 87,\n    \"total_tokens\": 1417,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:41.127Z] AI_REASONING: Determining action for intent: \"Click the checkout button\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:10.952Z] INFO: Executing action: fill on \"first-name\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:43.009Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Checkout\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to click the 'checkout' button. The element with role 'button' and text 'Checkout' matches this intent precisely, indicating it is the correct target for the click action.\",\n  \"usage\": {\n    \"prompt_tokens\": 1563,\n    \"completion_tokens\": 76,\n    \"total_tokens\": 1639,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1536,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:10.953Z] DEBUG: Trying strategy: Data-Test for \"first-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:43.009Z] INFO: [COST] Tokens: 1563 (input) | 76 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:14.480Z] DEBUG: Trying strategy: ID for \"first-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:43.010Z] INFO: [COST] Cumulative Tokens: 12225 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:15.008Z] DEBUG: Strategy ID succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:43.010Z] INFO: Executing action: click on \"Checkout\" with confidence 100% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:15.009Z] DEBUG: [LATENCY] execute(\"Enter \"John\" as first name\") took 5360ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:43.011Z] DEBUG: Trying strategy: Role & Name for \"Checkout\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:15.010Z] INFO: [AIAgent] Processing Intent: \"Enter \"Doe\" as last name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:43.555Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:15.011Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:43.556Z] DEBUG: [LATENCY] execute(\"Click the checkout button\") took 2438ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:15.025Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:43.556Z] INFO: [AIAgent] Processing Intent: \"Enter \"John\" as first name\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:15.026Z] AI_REASONING: Determining action for intent: \"Enter \\\"Doe\\\" as last name\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:43.556Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:16.097Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"last-name\",\n  \"value\": \"Doe\",\n  \"confidence\": 95,\n  \"reasoning\": \"Based on the user intent to enter a last name, the input field with ID 'last-name' and data-test 'lastName' is the appropriate target for filling in the 'Doe' last name as it matches the purpose of capturing last name information.\",\n  \"usage\": {\n    \"prompt_tokens\": 1332,\n    \"completion_tokens\": 74,\n    \"total_tokens\": 1406,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:43.564Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:16.098Z] INFO: Executing action: fill on \"last-name\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:43.564Z] AI_REASONING: Determining action for intent: \"Enter \\\"John\\\" as first name\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:16.099Z] DEBUG: Trying strategy: Data-Test for \"last-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:44.811Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"First Name\",\n  \"value\": \"John\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent explicitly mentions entering a first name. The input field with a placeholder 'First Name' matches this requirement.\",\n  \"usage\": {\n    \"prompt_tokens\": 1241,\n    \"completion_tokens\": 61,\n    \"total_tokens\": 1302,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:19.609Z] DEBUG: Trying strategy: ID for \"last-name\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:44.812Z] INFO: [COST] Tokens: 1241 (input) | 61 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:20.146Z] DEBUG: Strategy ID succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:44.812Z] INFO: [COST] Cumulative Tokens: 13527 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:20.148Z] DEBUG: [LATENCY] execute(\"Enter \"Doe\" as last name\") took 5138ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:44.812Z] INFO: Executing action: fill on \"First Name\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:20.148Z] INFO: [AIAgent] Processing Intent: \"Enter \"12345\" as postal code\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:44.813Z] DEBUG: Trying strategy: Placeholder for \"First Name\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:20.149Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:45.324Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:20.167Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:45.325Z] DEBUG: [LATENCY] execute(\"Enter \"John\" as first name\") took 1769ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:20.169Z] AI_REASONING: Determining action for intent: \"Enter \\\"12345\\\" as postal code\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:45.326Z] INFO: [AIAgent] Processing Intent: \"Enter \"Doe\" as last name\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:22.238Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"postal-code\",\n  \"value\": \"12345\",\n  \"confidence\": 100,\n  \"reasoning\": \"The intent is to enter a postal code, and the element with id 'postal-code' matches this purpose based on its role, name, and placeholder indicating it is for ZIP/Postal Code input.\",\n  \"usage\": {\n    \"prompt_tokens\": 1335,\n    \"completion_tokens\": 79,\n    \"total_tokens\": 1414,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:45.326Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:22.239Z] INFO: Executing action: fill on \"postal-code\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:45.335Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:22.240Z] DEBUG: Trying strategy: Data-Test for \"postal-code\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:45.335Z] AI_REASONING: Determining action for intent: \"Enter \\\"Doe\\\" as last name\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:25.757Z] DEBUG: Trying strategy: ID for \"postal-code\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:46.834Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Last Name\",\n  \"value\": \"Doe\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent to 'Enter \\\"Doe\\\" as last name' clearly indicates the user wants to fill the 'last-name' input field with the given text. This input field is identified by the role 'text', with an empty initial value and a placeholder 'Last Name'.\",\n  \"usage\": {\n    \"prompt_tokens\": 1243,\n    \"completion_tokens\": 93,\n    \"total_tokens\": 1336,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1152,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:26.283Z] DEBUG: Strategy ID succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:46.834Z] INFO: [COST] Tokens: 1243 (input) | 93 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:26.284Z] DEBUG: [LATENCY] execute(\"Enter \"12345\" as postal code\") took 6136ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:46.835Z] INFO: [COST] Cumulative Tokens: 14863 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:26.285Z] INFO: [AIAgent] Processing Intent: \"Click continue\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:46.835Z] INFO: Executing action: fill on \"Last Name\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:26.286Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:46.835Z] DEBUG: Trying strategy: Placeholder for \"Last Name\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:26.301Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:47.353Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:26.302Z] AI_REASONING: Determining action for intent: \"Click continue\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:47.358Z] DEBUG: [LATENCY] execute(\"Enter \"Doe\" as last name\") took 2032ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:27.473Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"continue\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to 'Click continue'. Among the extracted interactive elements, there is a 'submit' button with the text 'Continue' and a unique identifier with id='continue', which precisely matches the user's request. This makes it the most direct and confident choice for this action.\",\n  \"usage\": {\n    \"prompt_tokens\": 1332,\n    \"completion_tokens\": 93,\n    \"total_tokens\": 1425,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:47.359Z] INFO: [AIAgent] Processing Intent: \"Enter \"12345\" as postal code\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:27.474Z] INFO: Executing action: click on \"continue\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:47.359Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:27.475Z] DEBUG: Trying strategy: Data-Test for \"continue\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:47.366Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:28.050Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:47.367Z] AI_REASONING: Determining action for intent: \"Enter \\\"12345\\\" as postal code\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:28.051Z] DEBUG: [LATENCY] execute(\"Click continue\") took 1766ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:48.945Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Zip/Postal Code\",\n  \"value\": \"12345\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to enter a postal code, and the extracted element with placeholder 'Zip/Postal Code' is the most appropriate target for this action.\",\n  \"usage\": {\n    \"prompt_tokens\": 1246,\n    \"completion_tokens\": 72,\n    \"total_tokens\": 1318,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1152,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:28.052Z] INFO: [AIAgent] Processing Intent: \"Click finish\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:48.946Z] INFO: [COST] Tokens: 1246 (input) | 72 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:28.053Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:48.947Z] INFO: [COST] Cumulative Tokens: 16181 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:28.076Z] INFO: Found 33 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:48.947Z] INFO: Executing action: fill on \"Zip/Postal Code\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:28.077Z] AI_REASONING: Determining action for intent: \"Click finish\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:48.947Z] DEBUG: Trying strategy: Placeholder for \"Zip/Postal Code\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:29.243Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"finish\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user wants to 'Click finish', and there is a button with the text 'Finish' which directly corresponds to the intent. The 'finish' button also has a unique data-test ID, making it a highly confident match.\",\n  \"usage\": {\n    \"prompt_tokens\": 1959,\n    \"completion_tokens\": 82,\n    \"total_tokens\": 2041,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:49.471Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:29.244Z] INFO: Executing action: click on \"finish\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:49.472Z] DEBUG: [LATENCY] execute(\"Enter \"12345\" as postal code\") took 2113ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:29.245Z] DEBUG: Trying strategy: Data-Test for \"finish\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:49.473Z] INFO: [AIAgent] Processing Intent: \"Click continue\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:29.803Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:49.473Z] INFO: Extracting page context... \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:49.482Z] INFO: Found 19 interactive elements. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:05:49.483Z] AI_REASONING: Determining action for intent: \"Click continue\"\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:05:50.634Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Continue\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to 'Click continue', which directly matches the 'Continue' button with role 'submit' that is visible on the page, making it the most relevant target for the user's intent.\",\n  \"usage\": {\n    \"prompt_tokens\": 1243,\n    \"completion_tokens\": 75,\n    \"total_tokens\": 1318,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1152,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:50.634Z] INFO: [COST] Tokens: 1243 (input) | 75 (output) \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:50.635Z] INFO: [COST] Cumulative Tokens: 17499 / 20000 \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:50.635Z] INFO: Executing action: click on \"Continue\" with confidence 95% \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:50.635Z] DEBUG: Trying strategy: Role & Name for \"Continue\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:51.176Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:51.177Z] DEBUG: [LATENCY] execute(\"Click continue\") took 1704ms \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:51.177Z] INFO: [AIAgent] Processing Intent: \"Click finish\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:51.178Z] INFO: Extracting page context... \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:51.187Z] INFO: Found 33 interactive elements. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:05:51.187Z] AI_REASONING: Determining action for intent: \"Click finish\"\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[36m[2026-05-11T11:05:52.516Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Finish\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent is to 'Click finish', and there is a visible button with the text 'Finish' on the page. This matches the user intent directly.\",\n  \"usage\": {\n    \"prompt_tokens\": 1870,\n    \"completion_tokens\": 67,\n    \"total_tokens\": 1937,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 1024,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:52.519Z] INFO: [COST] Tokens: 1870 (input) | 67 (output) \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:52.519Z] INFO: [COST] Cumulative Tokens: 19436 / 20000 \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[32m[2026-05-11T11:05:52.520Z] INFO: Executing action: click on \"Finish\" with confidence 95% \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:52.520Z] DEBUG: Trying strategy: Role & Name for \"Finish\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:53.049Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:05:53.050Z] DEBUG: [LATENCY] execute(\"Click finish\") took 1873ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:29.804Z] DEBUG: [LATENCY] execute(\"Click finish\") took 1752ms \n\u001b[0m\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-11T11:05:25.153Z",
+                      "startTime": "2026-05-12T04:09:45.269Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1146,230 +968,194 @@
             },
             {
               "title": "should allow removing an item from the cart before checkout",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 60000,
+                  "timeout": 300000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "debug",
                   "projectName": "debug",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 20538,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.inventory_item_name')\nExpected: \u001b[32m\"Sauce Labs B\u001b[7mike Light\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Sauce Labs B\u001b[7mackpack\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.inventory_item_name')\u001b[22m\n\u001b[2m    9 × locator resolved to <div class=\"inventory_item_name\" data-test=\"inventory-item-name\">Sauce Labs Backpack</div>\u001b[22m\n\u001b[2m      - unexpected value \"Sauce Labs Backpack\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.inventory_item_name')\nExpected: \u001b[32m\"Sauce Labs B\u001b[7mike Light\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Sauce Labs B\u001b[7mackpack\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.inventory_item_name')\u001b[22m\n\u001b[2m    9 × locator resolved to <div class=\"inventory_item_name\" data-test=\"inventory-item-name\">Sauce Labs Backpack</div>\u001b[22m\n\u001b[2m      - unexpected value \"Sauce Labs Backpack\"\u001b[22m\n\n    at C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts:63:70",
-                        "location": {
-                          "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts",
-                          "column": 70,
-                          "line": 63
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m     \u001b[90m// Verify item is in cart\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m expect(agent\u001b[33m.\u001b[39mdirect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'.inventory_item_name'\u001b[39m)))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Sauce Labs Bike Light'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m\n \u001b[90m 65 |\u001b[39m     \u001b[90m// Remove item\u001b[39m\n \u001b[90m 66 |\u001b[39m     \u001b[36mawait\u001b[39m cartPage\u001b[33m.\u001b[39mremoveProduct(\u001b[32m'Sauce Labs Bike Light'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts",
-                            "column": 70,
-                            "line": 63
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.inventory_item_name')\nExpected: \u001b[32m\"Sauce Labs B\u001b[7mike Light\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"Sauce Labs B\u001b[7mackpack\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.inventory_item_name')\u001b[22m\n\u001b[2m    9 × locator resolved to <div class=\"inventory_item_name\" data-test=\"inventory-item-name\">Sauce Labs Backpack</div>\u001b[22m\n\u001b[2m      - unexpected value \"Sauce Labs Backpack\"\u001b[22m\n\n\n  61 |\n  62 |     // Verify item is in cart\n> 63 |     await expect(agent.direct(page.locator('.inventory_item_name'))).toHaveText('Sauce Labs Bike Light');\n     |                                                                      ^\n  64 |\n  65 |     // Remove item\n  66 |     await cartPage.removeProduct('Sauce Labs Bike Light');\n    at C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts:63:70"
-                        }
-                      ],
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 44474,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:54.249Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:33.622Z] INFO: [AIAgent] Processing Intent: \"Type \"standard_user\" into the username field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:54.250Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:33.623Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:54.258Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:33.644Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:54.259Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:33.645Z] AI_REASONING: Determining action for intent: \"Type \\\"standard_user\\\" into the username field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:55.928Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intent specifies filling the username field. The interactive element with the role 'text' and placeholder 'Username' matches this requirement. The 'id' and 'name' attributes further confirm it is the username field.\",\n  \"usage\": {\n    \"prompt_tokens\": 672,\n    \"completion_tokens\": 82,\n    \"total_tokens\": 754,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:36.322Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"username\",\n  \"value\": \"standard_user\",\n  \"confidence\": 100,\n  \"reasoning\": \"The user intends to type into the username field. The input element with 'dataTest': 'username' is clearly intended for entering the username. Its properties match the requirements, and its visibility confirms it is accessible for interaction.\",\n  \"usage\": {\n    \"prompt_tokens\": 761,\n    \"completion_tokens\": 83,\n    \"total_tokens\": 844,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:55.929Z] INFO: [COST] Tokens: 672 (input) | 82 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:36.323Z] INFO: Executing action: fill on \"username\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:55.929Z] INFO: [COST] Cumulative Tokens: 754 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:36.324Z] DEBUG: Trying strategy: Data-Test for \"username\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:55.929Z] INFO: Executing action: fill on \"Username\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:36.899Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:55.930Z] DEBUG: Trying strategy: Placeholder for \"Username\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:36.900Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 3278ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:56.472Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:36.901Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:56.473Z] DEBUG: [LATENCY] execute(\"Type \"standard_user\" into the username field\") took 2224ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:36.902Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:56.473Z] INFO: [AIAgent] Processing Intent: \"Type \"secret_sauce\" into the password field\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:36.915Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:56.474Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:36.916Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:56.478Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:39.356Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent is to type into the password field. The element with the data-test 'password' is identified as a password input field, making it the most appropriate target for this action.\",\n  \"usage\": {\n    \"prompt_tokens\": 765,\n    \"completion_tokens\": 76,\n    \"total_tokens\": 841,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:56.479Z] AI_REASONING: Determining action for intent: \"Type \\\"secret_sauce\\\" into the password field\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:39.357Z] INFO: Executing action: fill on \"password\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:58.919Z] AI_REASONING: AI Result: {\n  \"action\": \"fill\",\n  \"targetText\": \"Password\",\n  \"value\": \"secret_sauce\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent clearly specifies filling the password field with 'secret_sauce'. The element with role 'password' and placeholder 'Password' matches this requirement for input.\",\n  \"usage\": {\n    \"prompt_tokens\": 676,\n    \"completion_tokens\": 71,\n    \"total_tokens\": 747,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:39.358Z] DEBUG: Trying strategy: Data-Test for \"password\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:58.920Z] INFO: [COST] Tokens: 676 (input) | 71 (output) \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:39.886Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:58.920Z] INFO: [COST] Cumulative Tokens: 1501 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:39.888Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 2987ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:58.921Z] INFO: Executing action: fill on \"Password\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:39.889Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:58.921Z] DEBUG: Trying strategy: Placeholder for \"Password\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:39.889Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:59.445Z] DEBUG: Strategy Placeholder succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:39.903Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:05:59.445Z] DEBUG: [LATENCY] execute(\"Type \"secret_sauce\" into the password field\") took 2972ms \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:39.904Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:59.446Z] INFO: [AIAgent] Processing Intent: \"Click the login button\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:46.932Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"login-button\",\n  \"value\": \"\",\n  \"confidence\": 100,\n  \"reasoning\": \"The intent is to click the 'login' button. The element with the role 'submit' has the unique identifier 'login-button' for both ID and data-test, making it the best target.\",\n  \"usage\": {\n    \"prompt_tokens\": 763,\n    \"completion_tokens\": 76,\n    \"total_tokens\": 839,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:59.446Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:46.933Z] INFO: Executing action: click on \"login-button\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:05:59.451Z] INFO: Found 7 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:46.934Z] DEBUG: Trying strategy: Data-Test for \"login-button\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:05:59.452Z] AI_REASONING: Determining action for intent: \"Click the login button\"\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:47.588Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:06:00.642Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Login\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The intent is to click the 'login' button, which is explicitly indicated by the user's request. The interactive element matching this is the submit button with the text 'Login' and dataTest 'login-button'.\",\n  \"usage\": {\n    \"prompt_tokens\": 674,\n    \"completion_tokens\": 78,\n    \"total_tokens\": 752,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:10:47.589Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 7701ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:00.642Z] INFO: [COST] Tokens: 674 (input) | 78 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:47.590Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Bike Light\" to the cart\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:00.643Z] INFO: [COST] Cumulative Tokens: 2253 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:47.591Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:00.643Z] INFO: Executing action: click on \"Login\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:10:47.620Z] INFO: Found 70 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:00.643Z] DEBUG: Trying strategy: Role & Name for \"Login\" \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:10:47.621Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Bike Light\\\" to the cart\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:01.213Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:11:00.178Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"add-to-cart-sauce-labs-bike-light\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user intent is to add the 'Sauce Labs Bike Light' to the cart. The element with the ID 'add-to-cart-sauce-labs-bike-light' directly corresponds to the button for this specific product, making it the most specific and accurate target for the action.\",\n  \"usage\": {\n    \"prompt_tokens\": 4152,\n    \"completion_tokens\": 100,\n    \"total_tokens\": 4252,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:01.213Z] DEBUG: [LATENCY] execute(\"Click the login button\") took 1767ms \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:00.180Z] INFO: Executing action: click on \"add-to-cart-sauce-labs-bike-light\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:01.214Z] INFO: [AIAgent] Processing Intent: \"Add the \"Sauce Labs Bike Light\" to the cart\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:00.180Z] DEBUG: Trying strategy: Data-Test for \"add-to-cart-sauce-labs-bike-light\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:01.214Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:00.731Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:01.228Z] INFO: Found 70 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:00.732Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Bike Light\" to the cart\") took 13142ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:06:01.229Z] AI_REASONING: Determining action for intent: \"Add the \\\"Sauce Labs Bike Light\\\" to the cart\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:00.733Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:06:03.666Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"Add to cart\",\n  \"value\": \"add-to-cart-sauce-labs-bike-light\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intends to add the 'Sauce Labs Bike Light' to their cart. The most relevant action for this is clicking the 'Add to cart' button associated with the 'Sauce Labs Bike Light'. The corresponding button is identified by the ID 'add-to-cart-sauce-labs-bike-light', which matches the product the user is interested in.\",\n  \"usage\": {\n    \"prompt_tokens\": 4063,\n    \"completion_tokens\": 118,\n    \"total_tokens\": 4181,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 3072,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:00.733Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:03.667Z] INFO: [COST] Tokens: 4063 (input) | 118 (output) \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:00.765Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:03.667Z] INFO: [COST] Cumulative Tokens: 6434 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:11:00.766Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:03.667Z] INFO: Executing action: click on \"Add to cart\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:11:08.618Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"shopping-cart-link\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user intends to interact with the shopping cart icon. The element with 'role': 'a', 'dataTest': 'shopping-cart-link' matches this identifier, as it represents a link typically associated with a shopping cart functionality. The use of 'shopping-cart-link' as the identifier is specific and unambiguous.\",\n  \"usage\": {\n    \"prompt_tokens\": 4187,\n    \"completion_tokens\": 101,\n    \"total_tokens\": 4288,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 4096,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:03.668Z] DEBUG: Trying strategy: Role & Name for \"Add to cart\" \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:08.619Z] INFO: Executing action: click on \"shopping-cart-link\" with confidence 95% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:04.191Z] DEBUG: Strategy Role & Name succeeded. \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:08.619Z] DEBUG: Trying strategy: Data-Test for \"shopping-cart-link\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:04.192Z] DEBUG: [LATENCY] execute(\"Add the \"Sauce Labs Bike Light\" to the cart\") took 2978ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:09.195Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:04.192Z] INFO: [AIAgent] Processing Intent: \"Click on the shopping cart icon\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:09.196Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 8463ms \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:04.193Z] INFO: Extracting page context... \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:09.208Z] INFO: [AIAgent] Processing Intent: \"Remove \"Sauce Labs Bike Light\" from the cart\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:04.204Z] INFO: Found 71 interactive elements. \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:09.209Z] INFO: Extracting page context... \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:06:04.204Z] AI_REASONING: Determining action for intent: \"Click on the shopping cart icon\"\n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:09.226Z] INFO: Found 26 interactive elements. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[36m[2026-05-11T11:06:05.568Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"1\",\n  \"value\": \"\",\n  \"confidence\": 95,\n  \"reasoning\": \"The user's intent is to click on the shopping cart icon. The element with role 'a' and className 'shopping_cart_link' corresponds to the shopping cart icon, since it is the only clickable element likely associated with the cart, indicated by its visibility and data attribute 'shopping-cart-link'.\",\n  \"usage\": {\n    \"prompt_tokens\": 4098,\n    \"completion_tokens\": 95,\n    \"total_tokens\": 4193,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 3968,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:11:09.227Z] AI_REASONING: Determining action for intent: \"Remove \\\"Sauce Labs Bike Light\\\" from the cart\"\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:05.569Z] INFO: [COST] Tokens: 4098 (input) | 95 (output) \n\u001b[0m\n"
+                          "text": "\u001b[36m[2026-05-12T04:11:13.780Z] AI_REASONING: AI Result: {\n  \"action\": \"click\",\n  \"targetText\": \"remove-sauce-labs-bike-light\",\n  \"value\": null,\n  \"confidence\": 100,\n  \"reasoning\": \"The user's intent is to remove the 'Sauce Labs Bike Light' from the cart. The button to remove this item has a matching identifier with 'remove-sauce-labs-bike-light', which directly correlates with the user's intent. This unique data-test attribute ensures we target the correct button.\",\n  \"usage\": {\n    \"prompt_tokens\": 1662,\n    \"completion_tokens\": 101,\n    \"total_tokens\": 1763,\n    \"prompt_tokens_details\": {\n      \"cached_tokens\": 0,\n      \"audio_tokens\": 0\n    },\n    \"completion_tokens_details\": {\n      \"reasoning_tokens\": 0,\n      \"audio_tokens\": 0,\n      \"accepted_prediction_tokens\": 0,\n      \"rejected_prediction_tokens\": 0\n    }\n  }\n}\n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:05.569Z] INFO: [COST] Cumulative Tokens: 10627 / 20000 \n\u001b[0m\n"
+                          "text": "\u001b[32m[2026-05-12T04:11:13.782Z] INFO: Executing action: click on \"remove-sauce-labs-bike-light\" with confidence 100% \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[32m[2026-05-11T11:06:05.570Z] INFO: Executing action: click on \"1\" with confidence 95% \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:13.783Z] DEBUG: Trying strategy: Data-Test for \"remove-sauce-labs-bike-light\" \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:05.570Z] DEBUG: Trying strategy: Role & Name for \"1\" \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:14.322Z] DEBUG: Strategy Data-Test succeeded. \n\u001b[0m\n"
                         },
                         {
-                          "text": "\u001b[33m[2026-05-11T11:06:08.086Z] DEBUG: Trying strategy: Text for \"1\" \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:06:08.617Z] DEBUG: Strategy Text succeeded. \n\u001b[0m\n"
-                        },
-                        {
-                          "text": "\u001b[33m[2026-05-11T11:06:08.618Z] DEBUG: [LATENCY] execute(\"Click on the shopping cart icon\") took 4426ms \n\u001b[0m\n"
+                          "text": "\u001b[33m[2026-05-12T04:11:14.323Z] DEBUG: [LATENCY] execute(\"Remove \"Sauce Labs Bike Light\" from the cart\") took 5115ms \n\u001b[0m\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-05-11T11:05:53.099Z",
+                      "startTime": "2026-05-12T04:10:29.867Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\test-results\\checkout-E2E-Checkout-Flow-3a2eb-om-the-cart-before-checkout-debug\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\mvsar\\Projects\\AIBROWSERINTELLIGANCE LAYER\\tests\\checkout.test.ts",
-                        "column": 70,
-                        "line": 63
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "1cac7d196726861375b6-fff89eaad3111f488260",
@@ -1384,11 +1170,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-11T11:04:33.183Z",
-    "duration": 100668.375,
-    "expected": 1,
+    "startTime": "2026-05-12T04:09:39.624Z",
+    "duration": 94880.95,
+    "expected": 4,
     "skipped": 0,
-    "unexpected": 3,
+    "unexpected": 0,
     "flaky": 0
   }
 }

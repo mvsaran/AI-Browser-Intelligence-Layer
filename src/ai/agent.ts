@@ -10,15 +10,13 @@ import { Logger } from '../utils/logger';
  */
 export class AIAgent {
   private aiService: AIService;
-  private totalTokens: number = 0;
-  private maxTokens: number;
+  private lastIntent: string = 'None';
 
   /**
    * @param page The Playwright Page instance to automate
    */
   constructor(private page: Page) {
     this.aiService = new AIService();
-    this.maxTokens = parseInt(process.env.MAX_TOKENS_PER_TEST || '20000', 10);
   }
 
   /**
@@ -30,36 +28,56 @@ export class AIAgent {
   async execute(intent: string): Promise<boolean> {
     const startTime = Date.now();
     Logger.log(`[AIAgent] Processing Intent: "${intent}"`);
+    this.lastIntent = intent;
 
-    // 1. Capture Context from the current page
-    const { pageContext, elements } = await ContextExtractor.extract(this.page);
+    const maxRetries = 2;
+    let lastError: Error | null = null;
 
-    // 2. AI Reasoning to determine the next action
-    const aiResponse = await this.aiService.determineAction(intent, pageContext, elements);
-    
-    // 3. Token Tracking & Guardrails
-    if (aiResponse.usage) {
-      const { prompt_tokens, completion_tokens, total_tokens } = aiResponse.usage;
-      this.totalTokens += total_tokens;
-      
-      Logger.log(`[COST] Tokens: ${prompt_tokens} (input) | ${completion_tokens} (output)`);
-      Logger.log(`[COST] Cumulative Tokens: ${this.totalTokens} / ${this.maxTokens}`);
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        if (attempt > 0) {
+          Logger.log(`[AIAgent] Retry attempt ${attempt} for intent: "${intent}"`);
+          await this.page.waitForTimeout(2000); // Wait for page stability
+        }
 
-      if (this.totalTokens > this.maxTokens) {
-        const errorMsg = `[GUARD] MAX_TOKENS_PER_TEST exceeded: ${this.totalTokens} > ${this.maxTokens}`;
-        Logger.error(errorMsg);
-        throw new Error(errorMsg);
+        // 1. Capture Context from the current page
+        const { pageContext, elements } = await ContextExtractor.extract(this.page);
+
+        // 2. AI Reasoning to determine the next action
+        const aiResponse = await this.aiService.determineAction(intent, pageContext, elements);
+
+        // 4. Action Execution
+        const success = await ActionExecutor.execute(this.page, aiResponse);
+
+        if (success) {
+          // 5. Latency Logging
+          const duration = Date.now() - startTime;
+          Logger.debug(`[LATENCY] execute("${intent}") took ${duration}ms`);
+          return true;
+        }
+
+        const errorMsg = `[AIAgent] Failed to execute intent: "${intent}". AI reasoned: "${aiResponse.reasoning}"`;
+        lastError = new Error(errorMsg);
+        
+        if (attempt < maxRetries) {
+          Logger.debug(`[AIAgent] Action failed, but retrying... Reasoning: ${aiResponse.reasoning}`);
+          continue;
+        }
+      } catch (error: any) {
+        lastError = error;
+        if (attempt < maxRetries) {
+          Logger.debug(`[AIAgent] Exception caught, retrying... ${error.message}`);
+          continue;
+        }
       }
     }
 
-    // 4. Action Execution
-    const success = await ActionExecutor.execute(this.page, aiResponse);
-    
-    // 5. Latency Logging
-    const duration = Date.now() - startTime;
-    Logger.debug(`[LATENCY] execute("${intent}") took ${duration}ms`);
+    if (lastError) {
+      Logger.error(lastError.message);
+      throw lastError;
+    }
 
-    return success;
+    return false;
   }
 
   /**
@@ -76,10 +94,12 @@ export class AIAgent {
     return locator;
   }
 
+
+
   /**
-   * @returns The total tokens consumed by this agent instance
+   * @returns The last intent processed by this agent
    */
-  getTotalTokensUsed(): number {
-    return this.totalTokens;
+  getLastIntent(): string {
+    return this.lastIntent;
   }
 }

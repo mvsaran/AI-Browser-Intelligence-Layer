@@ -34,7 +34,6 @@
 - [Benefits](#-benefits)
 - [Using this on a new e-commerce project](#-using-this-on-a-new-e-commerce-project)
 - [When to use AI vs direct locators](#-when-to-use-ai-vs-direct-locators)
-- [Cost and token awareness](#-cost--token-awareness)
 - [Troubleshooting](#-troubleshooting)
 - [FAQ](#-faq)
 
@@ -158,7 +157,7 @@ This is what powers the AI brain of the system.
 > 4. Copy and save it immediately — you cannot see it again after closing
 > 5. Ensure your account has **GPT-4o access** (requires adding billing details)
 
-> ⚠️ **Cost note:** Each test action = one GPT-4o API call. A full 7-step checkout flow costs roughly $0.02–0.05. See [Cost & token awareness](#-cost--token-awareness) for built-in controls.
+> ⚠️ **Cost note:** Each test action = one GPT-4o API call. A full 7-step checkout flow costs roughly $0.02–0.05.
 
 ---
 
@@ -252,14 +251,10 @@ Now open `.env` in your editor and fill in your values:
 ```env
 OPENAI_API_KEY=sk-proj-your-actual-key-here
 BASE_URL=https://www.saucedemo.com
-MAX_TOKENS_PER_TEST=5000
-```
-
 | Variable | What it does |
 |---|---|
 | `OPENAI_API_KEY` | Your key from platform.openai.com |
 | `BASE_URL` | The website you want to test |
-| `MAX_TOKENS_PER_TEST` | Safety cap to control API costs |
 
 > ⚠️ No spaces around the `=` sign. `KEY=value` is correct. `KEY = value` will break.
 
@@ -855,35 +850,6 @@ Assertions are a yes/no question — "does this text exist?" doesn't need AI int
 
 ---
 
-## 💰 Cost & token awareness
-
-Every `agent.execute()` call makes one GPT-4o API call. Here is what to expect in practice.
-
-### Typical cost per flow
-
-| Flow | Actions | Estimated cost |
-|---|---|---|
-| Login only | 3 steps | ~$0.005 |
-| Add a product to cart | 2 steps | ~$0.003 |
-| Full checkout end-to-end | 7 steps | ~$0.02–0.05 |
-| Full regression suite (50 tests) | ~200 steps | ~$0.50–1.00 |
-
-### Built-in cost control
-
-Set `MAX_TOKENS_PER_TEST` in your `.env` file:
-
-```env
-MAX_TOKENS_PER_TEST=5000
-```
-
-If any single test exceeds this token budget, it fails immediately with a clear error before it can run up a large bill.
-
-### Tips to reduce cost further
-
-- Write more specific intents — fewer back-and-forth calls when the AI gets it right first time
-- Use `agent.direct(locator)` for actions on pages you've already confirmed are stable (bypasses GPT-4o entirely)
-- In CI, run the AI-powered suite on PRs only; use direct Playwright for large regression suites where speed matters more than resilience
-
 ---
 
 ## 🔧 Troubleshooting
@@ -996,6 +962,39 @@ The visible text, button labels, aria-labels, and placeholders of each page are 
 3. Add `OPENAI_API_KEY` to your `.env`
 4. Replace brittle `page.click(selector)` calls with `agent.execute(intent)` where you want resilience
 5. Keep all `expect()` assertions exactly as they are
+
+---
+
+---
+
+## 🩹 AI Self-Healing (HealerAgent)
+
+The framework includes a built-in **HealerAgent** that automatically triggers when a test fails. Instead of just giving you a stack trace, it uses AI to analyze the failure and provide a human-readable diagnosis and fix suggestion.
+
+### What the HealerAgent does on failure:
+
+1.  **Captures State**: Takes a full-page screenshot and extracts the current DOM context.
+2.  **Analyzes Error**: Sends the error message, the last attempted intent, and the page state to GPT-4o.
+3.  **Generates Report**: Logs a detailed "Healing Report" to the console and `execution.log`.
+
+### Example Healing Report:
+
+```text
+[HealerAgent] 🚨 Test Failed: "should complete a successful purchase"
+[HealerAgent] Error Message: [AIAgent] Failed to execute intent: "Click the Finish button"
+
+--- HEALING REPORT ---
+TEST: should complete a successful purchase
+ANALYSIS: 
+1. DIAGNOSIS: The "Finish" button could not be clicked because a "Cookie Consent" overlay was blocking the interaction.
+2. HEALING SUGGESTION: Add a step to accept cookies at the start of the test, or update the intent to "Close the cookie banner and click Finish".
+3. ALTERNATIVE LOCATOR: Use "data-test='accept-cookies'" to clear the overlay first.
+----------------------
+```
+
+### How to use it:
+
+The HealerAgent is integrated into the `agent.fixture.ts` and runs automatically. You don't need to write any extra code to benefit from it.
 
 ---
 

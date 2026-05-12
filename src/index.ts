@@ -14,7 +14,7 @@ export class AIBrowserIntelligence {
   }
 
   async init(url?: string) {
-    this.browser = await chromium.launch({ headless: false });
+    this.browser = await chromium.launch({ headless: true });
     const context = await this.browser.newContext();
     this.page = await context.newPage();
     if (url) {

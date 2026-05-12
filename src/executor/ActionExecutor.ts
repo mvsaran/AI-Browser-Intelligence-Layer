@@ -39,15 +39,27 @@ export class ActionExecutor {
   }
 
   private static async clickElement(page: Page, text: string) {
+    const isSlug = /^[a-z0-9-_]+$/.test(text);
+    
     const strategies = [
-      { name: 'Role & Name', fn: () => page.getByRole('button', { name: text, exact: false }).first().click({ timeout: 2000 }) },
-      { name: 'Text', fn: () => page.getByText(text, { exact: false }).first().click({ timeout: 2000 }) },
-      { name: 'Data-Test', fn: () => page.locator(`[data-test="${text}"], [data-testid="${text}"]`).first().click({ timeout: 2000 }) },
-      { name: 'Label', fn: () => page.getByLabel(text, { exact: false }).first().click({ timeout: 2000 }) },
-      { name: 'ID', fn: () => page.locator(`#${text.replace(/^#/, '')}`).click({ timeout: 2000 }) },
-      { name: 'Name Attribute', fn: () => page.locator(`[name="${text}"]`).click({ timeout: 2000 }) },
-      { name: 'CSS Selector', fn: () => page.locator(text).click({ timeout: 2000 }) }
+      { name: 'Data-Test', fn: () => page.locator(`[data-test="${text}"], [data-testid="${text}"]`).first().click({ timeout: 3000 }) },
+      { name: 'ID', fn: () => page.locator(`#${text.replace(/^#/, '')}`).click({ timeout: 3000 }) },
+      { name: 'Role & Name', fn: () => page.getByRole('button', { name: text, exact: false }).first().click({ timeout: 3000 }) },
+      { name: 'Text', fn: () => page.getByText(text, { exact: false }).first().click({ timeout: 3000 }) },
+      { name: 'Label', fn: () => page.getByLabel(text, { exact: false }).first().click({ timeout: 3000 }) },
+      { name: 'Name Attribute', fn: () => page.locator(`[name="${text}"]`).click({ timeout: 3000 }) },
+      { name: 'Class', fn: () => page.locator(`.${text.replace(/^\./, '')}`).first().click({ timeout: 3000 }) },
+      { name: 'CSS Selector', fn: () => page.locator(text.startsWith('.') || text.startsWith('#') || text.startsWith('[') ? text : `text="${text}"`).first().click({ timeout: 3000 }) }
     ];
+
+    // If it's not a slug, prioritize Text and Role over ID/Data-Test
+    if (!isSlug) {
+      const dataTestIdx = strategies.findIndex(s => s.name === 'Data-Test');
+      const idIdx = strategies.findIndex(s => s.name === 'ID');
+      const [dataTest] = strategies.splice(dataTestIdx, 1);
+      const [id] = strategies.splice(idIdx - 1, 1); // Adjust index after splice
+      strategies.push(dataTest, id);
+    }
 
     for (const strategy of strategies) {
       try {
@@ -67,15 +79,28 @@ export class ActionExecutor {
   }
 
   private static async fillElement(page: Page, label: string, value: string) {
+    const isSlug = /^[a-z0-9-_]+$/.test(label);
+
     const strategies = [
-      { name: 'Placeholder', fn: () => page.getByPlaceholder(label, { exact: false }).fill(value, { timeout: 1000 }) },
-      { name: 'Label', fn: () => page.getByLabel(label, { exact: false }).fill(value, { timeout: 1000 }) },
-      { name: 'Data-Test', fn: () => page.locator(`[data-test="${label}"], [data-testid="${label}"]`).first().fill(value, { timeout: 1000 }) },
-      { name: 'Role & Name', fn: () => page.getByRole('textbox', { name: label, exact: false }).fill(value, { timeout: 1000 }) },
-      { name: 'ID', fn: () => page.locator(`#${label.replace(/^#/, '')}`).fill(value, { timeout: 1000 }) },
-      { name: 'Name Attribute', fn: () => page.locator(`[name="${label}"]`).fill(value, { timeout: 1000 }) },
-      { name: 'Near Text', fn: () => page.locator(`input:near(:text("${label}"))`).first().fill(value, { timeout: 1000 }) }
+      { name: 'Data-Test', fn: () => page.locator(`[data-test="${label}"], [data-testid="${label}"]`).first().fill(value, { timeout: 3000 }) },
+      { name: 'ID', fn: () => page.locator(`#${label.replace(/^#/, '')}`).fill(value, { timeout: 3000 }) },
+      { name: 'Placeholder', fn: () => page.getByPlaceholder(label, { exact: false }).fill(value, { timeout: 3000 }) },
+      { name: 'Label', fn: () => page.getByLabel(label, { exact: false }).fill(value, { timeout: 3000 }) },
+      { name: 'Role & Name', fn: () => page.getByRole('textbox', { name: label, exact: false }).fill(value, { timeout: 3000 }) },
+      { name: 'Name Attribute', fn: () => page.locator(`[name="${label}"]`).fill(value, { timeout: 3000 }) },
+      { name: 'Near Text', fn: () => page.locator(`input:near(:text("${label}"))`).first().fill(value, { timeout: 3000 }) },
+      { name: 'Class', fn: () => page.locator(`.${label.replace(/^\./, '')}`).first().fill(value, { timeout: 3000 }) },
+      { name: 'CSS Selector', fn: () => page.locator(label.startsWith('.') || label.startsWith('#') || label.startsWith('[') ? label : `text="${label}"`).first().fill(value, { timeout: 3000 }) }
     ];
+
+    // If it's not a slug, prioritize Placeholder and Label over ID/Data-Test
+    if (!isSlug) {
+      const dataTestIdx = strategies.findIndex(s => s.name === 'Data-Test');
+      const idIdx = strategies.findIndex(s => s.name === 'ID');
+      const [dataTest] = strategies.splice(dataTestIdx, 1);
+      const [id] = strategies.splice(idIdx - 1, 1);
+      strategies.push(dataTest, id);
+    }
 
     for (const strategy of strategies) {
       try {
